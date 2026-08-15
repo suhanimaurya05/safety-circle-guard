@@ -11,8 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactsRouteImport } from './routes/contacts'
+import { Route as FakeCallRouteImport } from './routes/fake-call'
 import { Route as LocationRouteImport } from './routes/location'
 import { Route as NearbyRouteImport } from './routes/nearby'
+import { Route as ReportRouteImport } from './routes/report'
+import { Route as SafeRouteRouteImport } from './routes/safe-route'
 import { Route as SosRouteImport } from './routes/sos'
 
 const IndexRoute = IndexRouteImport.update({
@@ -25,6 +28,11 @@ const ContactsRoute = ContactsRouteImport.update({
   path: '/contacts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FakeCallRoute = FakeCallRouteImport.update({
+  id: '/fake-call',
+  path: '/fake-call',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationRoute = LocationRouteImport.update({
   id: '/location',
   path: '/location',
@@ -33,6 +41,16 @@ const LocationRoute = LocationRouteImport.update({
 const NearbyRoute = NearbyRouteImport.update({
   id: '/nearby',
   path: '/nearby',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportRoute = ReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafeRouteRoute = SafeRouteRouteImport.update({
+  id: '/safe-route',
+  path: '/safe-route',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SosRoute = SosRouteImport.update({
@@ -44,38 +62,75 @@ const SosRoute = SosRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contacts': typeof ContactsRoute
+  '/fake-call': typeof FakeCallRoute
   '/location': typeof LocationRoute
   '/nearby': typeof NearbyRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
   '/sos': typeof SosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contacts': typeof ContactsRoute
+  '/fake-call': typeof FakeCallRoute
   '/location': typeof LocationRoute
   '/nearby': typeof NearbyRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
   '/sos': typeof SosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contacts': typeof ContactsRoute
+  '/fake-call': typeof FakeCallRoute
   '/location': typeof LocationRoute
   '/nearby': typeof NearbyRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
   '/sos': typeof SosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contacts' | '/location' | '/nearby' | '/sos'
+  fullPaths:
+    | '/'
+    | '/contacts'
+    | '/fake-call'
+    | '/location'
+    | '/nearby'
+    | '/report'
+    | '/safe-route'
+    | '/sos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contacts' | '/location' | '/nearby' | '/sos'
-  id: '__root__' | '/' | '/contacts' | '/location' | '/nearby' | '/sos'
+  to:
+    | '/'
+    | '/contacts'
+    | '/fake-call'
+    | '/location'
+    | '/nearby'
+    | '/report'
+    | '/safe-route'
+    | '/sos'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacts'
+    | '/fake-call'
+    | '/location'
+    | '/nearby'
+    | '/report'
+    | '/safe-route'
+    | '/sos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactsRoute: typeof ContactsRoute
+  FakeCallRoute: typeof FakeCallRoute
   LocationRoute: typeof LocationRoute
   NearbyRoute: typeof NearbyRoute
+  ReportRoute: typeof ReportRoute
+  SafeRouteRoute: typeof SafeRouteRoute
   SosRoute: typeof SosRoute
 }
 
@@ -95,6 +150,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fake-call': {
+      id: '/fake-call'
+      path: '/fake-call'
+      fullPath: '/fake-call'
+      preLoaderRoute: typeof FakeCallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/location': {
       id: '/location'
       path: '/location'
@@ -107,6 +169,20 @@ declare module '@tanstack/react-router' {
       path: '/nearby'
       fullPath: '/nearby'
       preLoaderRoute: typeof NearbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report': {
+      id: '/report'
+      path: '/report'
+      fullPath: '/report'
+      preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safe-route': {
+      id: '/safe-route'
+      path: '/safe-route'
+      fullPath: '/safe-route'
+      preLoaderRoute: typeof SafeRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sos': {
@@ -122,8 +198,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactsRoute: ContactsRoute,
+  FakeCallRoute: FakeCallRoute,
   LocationRoute: LocationRoute,
   NearbyRoute: NearbyRoute,
+  ReportRoute: ReportRoute,
+  SafeRouteRoute: SafeRouteRoute,
   SosRoute: SosRoute,
 }
 export const routeTree = rootRouteImport
