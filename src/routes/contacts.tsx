@@ -14,8 +14,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Field } from "@/components/Field";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useSafety, type Contact } from "@/lib/safety-store";
 
@@ -59,7 +59,11 @@ function ContactsPage() {
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<Contact | null>(null);
   const [form, setForm] = useState<FormState>(empty);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<{
+    name?: string;
+    phone?: string;
+    relationship?: string;
+  }>({});
 
   const openNew = () => {
     setEditing(null);
@@ -76,7 +80,7 @@ function ContactsPage() {
   };
 
   const submit = () => {
-    const next: Record<string, string> = {};
+    const next: { name?: string; phone?: string; relationship?: string } = {};
     if (form.name.trim().length < 2) next.name = "Enter the contact's name.";
     if (!/^[+\d][\d\s-]{6,19}$/.test(form.phone.trim()))
       next.phone = "Enter a valid phone number (digits, spaces or +).";
@@ -254,30 +258,6 @@ function ContactsPage() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </div>
-  );
-}
-
-function Field({
-  label,
-  id,
-  error,
-  children,
-}: {
-  label: string;
-  id: string;
-  error?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="space-y-1.5">
-      <Label htmlFor={id}>{label}</Label>
-      {children}
-      {error && (
-        <p className="text-sm font-medium text-destructive" role="alert">
-          {error}
-        </p>
-      )}
     </div>
   );
 }

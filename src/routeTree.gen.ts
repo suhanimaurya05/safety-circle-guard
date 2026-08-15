@@ -13,9 +13,13 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as FakeCallRouteImport } from './routes/fake-call'
 import { Route as LocationRouteImport } from './routes/location'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as NearbyRouteImport } from './routes/nearby'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as ReportRouteImport } from './routes/report'
 import { Route as SafeRouteRouteImport } from './routes/safe-route'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SosRouteImport } from './routes/sos'
 
 const IndexRoute = IndexRouteImport.update({
@@ -38,9 +42,19 @@ const LocationRoute = LocationRouteImport.update({
   path: '/location',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NearbyRoute = NearbyRouteImport.update({
   id: '/nearby',
   path: '/nearby',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReportRoute = ReportRouteImport.update({
@@ -51,6 +65,16 @@ const ReportRoute = ReportRouteImport.update({
 const SafeRouteRoute = SafeRouteRouteImport.update({
   id: '/safe-route',
   path: '/safe-route',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SosRoute = SosRouteImport.update({
@@ -64,9 +88,13 @@ export interface FileRoutesByFullPath {
   '/contacts': typeof ContactsRoute
   '/fake-call': typeof FakeCallRoute
   '/location': typeof LocationRoute
+  '/login': typeof LoginRoute
   '/nearby': typeof NearbyRoute
+  '/onboarding': typeof OnboardingRoute
   '/report': typeof ReportRoute
   '/safe-route': typeof SafeRouteRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
   '/sos': typeof SosRoute
 }
 export interface FileRoutesByTo {
@@ -74,9 +102,13 @@ export interface FileRoutesByTo {
   '/contacts': typeof ContactsRoute
   '/fake-call': typeof FakeCallRoute
   '/location': typeof LocationRoute
+  '/login': typeof LoginRoute
   '/nearby': typeof NearbyRoute
+  '/onboarding': typeof OnboardingRoute
   '/report': typeof ReportRoute
   '/safe-route': typeof SafeRouteRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
   '/sos': typeof SosRoute
 }
 export interface FileRoutesById {
@@ -85,9 +117,13 @@ export interface FileRoutesById {
   '/contacts': typeof ContactsRoute
   '/fake-call': typeof FakeCallRoute
   '/location': typeof LocationRoute
+  '/login': typeof LoginRoute
   '/nearby': typeof NearbyRoute
+  '/onboarding': typeof OnboardingRoute
   '/report': typeof ReportRoute
   '/safe-route': typeof SafeRouteRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
   '/sos': typeof SosRoute
 }
 export interface FileRouteTypes {
@@ -97,9 +133,13 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/fake-call'
     | '/location'
+    | '/login'
     | '/nearby'
+    | '/onboarding'
     | '/report'
     | '/safe-route'
+    | '/settings'
+    | '/signup'
     | '/sos'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -107,9 +147,13 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/fake-call'
     | '/location'
+    | '/login'
     | '/nearby'
+    | '/onboarding'
     | '/report'
     | '/safe-route'
+    | '/settings'
+    | '/signup'
     | '/sos'
   id:
     | '__root__'
@@ -117,9 +161,13 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/fake-call'
     | '/location'
+    | '/login'
     | '/nearby'
+    | '/onboarding'
     | '/report'
     | '/safe-route'
+    | '/settings'
+    | '/signup'
     | '/sos'
   fileRoutesById: FileRoutesById
 }
@@ -128,9 +176,13 @@ export interface RootRouteChildren {
   ContactsRoute: typeof ContactsRoute
   FakeCallRoute: typeof FakeCallRoute
   LocationRoute: typeof LocationRoute
+  LoginRoute: typeof LoginRoute
   NearbyRoute: typeof NearbyRoute
+  OnboardingRoute: typeof OnboardingRoute
   ReportRoute: typeof ReportRoute
   SafeRouteRoute: typeof SafeRouteRoute
+  SettingsRoute: typeof SettingsRoute
+  SignupRoute: typeof SignupRoute
   SosRoute: typeof SosRoute
 }
 
@@ -164,11 +216,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nearby': {
       id: '/nearby'
       path: '/nearby'
       fullPath: '/nearby'
       preLoaderRoute: typeof NearbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/report': {
@@ -183,6 +249,20 @@ declare module '@tanstack/react-router' {
       path: '/safe-route'
       fullPath: '/safe-route'
       preLoaderRoute: typeof SafeRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sos': {
@@ -200,9 +280,13 @@ const rootRouteChildren: RootRouteChildren = {
   ContactsRoute: ContactsRoute,
   FakeCallRoute: FakeCallRoute,
   LocationRoute: LocationRoute,
+  LoginRoute: LoginRoute,
   NearbyRoute: NearbyRoute,
+  OnboardingRoute: OnboardingRoute,
   ReportRoute: ReportRoute,
   SafeRouteRoute: SafeRouteRoute,
+  SettingsRoute: SettingsRoute,
+  SignupRoute: SignupRoute,
   SosRoute: SosRoute,
 }
 export const routeTree = rootRouteImport
