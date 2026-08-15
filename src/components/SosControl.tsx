@@ -52,10 +52,10 @@ export function SosHoldButton({ size = "lg" }: { size?: "lg" | "sm" }) {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <div className="relative">
+      <div className={cn("relative", dim)}>
         <svg
           viewBox="0 0 100 100"
-          className={cn("absolute inset-0 -rotate-90", dim)}
+          className="absolute inset-0 h-full w-full -rotate-90"
           aria-hidden="true"
         >
           <circle cx="50" cy="50" r="47" className="fill-none stroke-sos-soft" strokeWidth="3" />
@@ -85,19 +85,16 @@ export function SosHoldButton({ size = "lg" }: { size?: "lg" | "sm" }) {
           }}
           onKeyUp={stop}
           className={cn(
-            "relative m-3 flex flex-col items-center justify-center rounded-full bg-sos text-sos-foreground shadow-sos transition-transform duration-150 active:scale-95",
+            "absolute flex flex-col items-center justify-center rounded-full bg-sos text-sos-foreground shadow-sos transition-transform duration-150 active:scale-95",
             progress > 0 ? "scale-95" : "animate-sos-pulse",
-            size === "lg" ? "h-50 w-50 sm:h-58 sm:w-58" : "h-30 w-30",
+            size === "lg" ? "inset-3.5" : "inset-2.5",
           )}
-          style={{
-            width: size === "lg" ? "calc(100% - 1.5rem)" : undefined,
-          }}
         >
           <ShieldAlert
             className={size === "lg" ? "mb-1 h-10 w-10" : "mb-0.5 h-6 w-6"}
             aria-hidden="true"
           />
-          <span className={size === "lg" ? "text-2xl font-bold" : "text-sm font-bold"}>
+          <span className={size === "lg" ? "text-3xl font-bold" : "text-base font-bold"}>
             {progress > 0 ? `${pct}%` : "SOS"}
           </span>
           <span
@@ -109,7 +106,6 @@ export function SosHoldButton({ size = "lg" }: { size?: "lg" | "sm" }) {
             {progress > 0 ? "Keep holding…" : "Emergency SOS"}
           </span>
         </button>
-        <div className={cn("pointer-events-none", dim)} />
       </div>
 
       <div className="text-center" aria-live="polite">
