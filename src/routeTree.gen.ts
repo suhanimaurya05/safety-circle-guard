@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactsRouteImport } from './routes/contacts'
+import { Route as FakeCallRouteImport } from './routes/fake-call'
+import { Route as LocationRouteImport } from './routes/location'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NearbyRouteImport } from './routes/nearby'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as ReportRouteImport } from './routes/report'
+import { Route as SafeRouteRouteImport } from './routes/safe-route'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SosRouteImport } from './routes/sos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactsRoute = ContactsRouteImport.update({
+  id: '/contacts',
+  path: '/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FakeCallRoute = FakeCallRouteImport.update({
+  id: '/fake-call',
+  path: '/fake-call',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationRoute = LocationRouteImport.update({
+  id: '/location',
+  path: '/location',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NearbyRoute = NearbyRouteImport.update({
+  id: '/nearby',
+  path: '/nearby',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportRoute = ReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafeRouteRoute = SafeRouteRouteImport.update({
+  id: '/safe-route',
+  path: '/safe-route',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SosRoute = SosRouteImport.update({
+  id: '/sos',
+  path: '/sos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacts': typeof ContactsRoute
+  '/fake-call': typeof FakeCallRoute
+  '/location': typeof LocationRoute
+  '/login': typeof LoginRoute
+  '/nearby': typeof NearbyRoute
+  '/onboarding': typeof OnboardingRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/sos': typeof SosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacts': typeof ContactsRoute
+  '/fake-call': typeof FakeCallRoute
+  '/location': typeof LocationRoute
+  '/login': typeof LoginRoute
+  '/nearby': typeof NearbyRoute
+  '/onboarding': typeof OnboardingRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/sos': typeof SosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacts': typeof ContactsRoute
+  '/fake-call': typeof FakeCallRoute
+  '/location': typeof LocationRoute
+  '/login': typeof LoginRoute
+  '/nearby': typeof NearbyRoute
+  '/onboarding': typeof OnboardingRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
+  '/settings': typeof SettingsRoute
+  '/signup': typeof SignupRoute
+  '/sos': typeof SosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contacts'
+    | '/fake-call'
+    | '/location'
+    | '/login'
+    | '/nearby'
+    | '/onboarding'
+    | '/report'
+    | '/safe-route'
+    | '/settings'
+    | '/signup'
+    | '/sos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contacts'
+    | '/fake-call'
+    | '/location'
+    | '/login'
+    | '/nearby'
+    | '/onboarding'
+    | '/report'
+    | '/safe-route'
+    | '/settings'
+    | '/signup'
+    | '/sos'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacts'
+    | '/fake-call'
+    | '/location'
+    | '/login'
+    | '/nearby'
+    | '/onboarding'
+    | '/report'
+    | '/safe-route'
+    | '/settings'
+    | '/signup'
+    | '/sos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactsRoute: typeof ContactsRoute
+  FakeCallRoute: typeof FakeCallRoute
+  LocationRoute: typeof LocationRoute
+  LoginRoute: typeof LoginRoute
+  NearbyRoute: typeof NearbyRoute
+  OnboardingRoute: typeof OnboardingRoute
+  ReportRoute: typeof ReportRoute
+  SafeRouteRoute: typeof SafeRouteRoute
+  SettingsRoute: typeof SettingsRoute
+  SignupRoute: typeof SignupRoute
+  SosRoute: typeof SosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacts': {
+      id: '/contacts'
+      path: '/contacts'
+      fullPath: '/contacts'
+      preLoaderRoute: typeof ContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fake-call': {
+      id: '/fake-call'
+      path: '/fake-call'
+      fullPath: '/fake-call'
+      preLoaderRoute: typeof FakeCallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/location': {
+      id: '/location'
+      path: '/location'
+      fullPath: '/location'
+      preLoaderRoute: typeof LocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nearby': {
+      id: '/nearby'
+      path: '/nearby'
+      fullPath: '/nearby'
+      preLoaderRoute: typeof NearbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report': {
+      id: '/report'
+      path: '/report'
+      fullPath: '/report'
+      preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safe-route': {
+      id: '/safe-route'
+      path: '/safe-route'
+      fullPath: '/safe-route'
+      preLoaderRoute: typeof SafeRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sos': {
+      id: '/sos'
+      path: '/sos'
+      fullPath: '/sos'
+      preLoaderRoute: typeof SosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactsRoute: ContactsRoute,
+  FakeCallRoute: FakeCallRoute,
+  LocationRoute: LocationRoute,
+  LoginRoute: LoginRoute,
+  NearbyRoute: NearbyRoute,
+  OnboardingRoute: OnboardingRoute,
+  ReportRoute: ReportRoute,
+  SafeRouteRoute: SafeRouteRoute,
+  SettingsRoute: SettingsRoute,
+  SignupRoute: SignupRoute,
+  SosRoute: SosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
